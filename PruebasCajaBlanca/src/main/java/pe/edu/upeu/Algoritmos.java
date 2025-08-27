@@ -2,32 +2,32 @@ package pe.edu.upeu;
 
 public class Algoritmos {
 
-    public int[] sumaDosNumeros(int[] m, int o){
-        int[] p=new int[2];
-        for (int i = 0; i < m.length-1; i++) {
-            for (int j = i+1; j < m.length; j++) {
-                if (m[i]+m[j]==o){
-                    p[0]=i;
-                    p[1]=j;
-                    break;
-                }
-            }
+
+    public boolean esNumeroFeliz(int n) {
+        int lento = n;
+        int rapido = siguiente(n); // arranca adelantado
+
+        while (rapido != 1 && lento != rapido) {
+            lento  = siguiente(lento);
+            rapido = siguiente(siguiente(rapido));
         }
-        return p;
+        return rapido == 1;
+    }
+
+
+    private int siguiente(int x) {
+        int acumulado = 0;
+        for (; x > 0; x /= 10) {
+            int d = x % 10;
+            acumulado += d * d;
+        }
+        return acumulado;
     }
 
 
     public static void main(String[] args) {
-        Algoritmos a = new Algoritmos();
-
-        int[] m = {11,15,2,7};
-        int o=9;
-        int[] p=a.sumaDosNumeros(m,o);
-        System.out.println("["+p[0]+","+p[1]+"]");
-
+        Algoritmos alg = new Algoritmos();
+        System.out.println("19 -> " + alg.esNumeroFeliz(19)); // true
+        System.out.println("2  -> " + alg.esNumeroFeliz(2));  // false
     }
-
-
-
-
 }
