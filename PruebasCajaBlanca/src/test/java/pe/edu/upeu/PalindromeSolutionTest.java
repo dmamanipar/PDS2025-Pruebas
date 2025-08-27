@@ -131,7 +131,7 @@ class PalindromeSolutionTest {
                 "race a car",
                 " ",
                 "racecar",
-                "helloe
+                "helloe"
         };
 
         for (String testCase : testCases) {
