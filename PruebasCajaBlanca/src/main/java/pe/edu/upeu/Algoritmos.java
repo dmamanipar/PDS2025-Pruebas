@@ -20,7 +20,7 @@ public class Algoritmos {
     public static void main(String[] args) {
         Algoritmos a = new Algoritmos();
 
-        int[] m = {11,15,2,7};
+        int[] m = {2,11,5,7};
         int o=9;
         int[] p=a.sumaDosNumeros(m,o);
         System.out.println("["+p[0]+","+p[1]+"]");
