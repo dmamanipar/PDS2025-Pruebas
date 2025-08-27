@@ -62,6 +62,86 @@ public class AlgoritmosTest {
         Assertions.assertNotEquals(o,suma);
     }
 
+    //Palindromo Valido
+    @Order(5)
+    @Test
+    void testEsPalindromoValido1() {
+        Algoritmos a = new Algoritmos();
+        String s = "A man, a plan, a canal: Panama";
+        boolean resultado = a.esPalindromoValido(s);
+        System.out.println("¿Es palíndromo '" + s + "'? " + resultado);
+        Assertions.assertTrue(resultado);
+    }
+
+    @Order(6)
+    @Test
+    void testEsPalindromoValido2() {
+        Algoritmos a = new Algoritmos();
+        String s = "race a car";
+        boolean resultado = a.esPalindromoValido(s);
+        System.out.println("¿Es palíndromo '" + s + "'? " + resultado);
+        Assertions.assertFalse(resultado);
+    }
+
+    @Order(7)
+    @Test
+    void testEsPalindromoValido3() {
+        Algoritmos a = new Algoritmos();
+        String s = " ";
+        boolean resultado = a.esPalindromoValido(s);
+        System.out.println("¿Es palíndromo '" + s + "'? " + resultado);
+        Assertions.assertTrue(resultado);
+    }
+
+    @Order(8)
+    @Test
+    void testEsPalindromoValido4() {
+        Algoritmos a = new Algoritmos();
+        String s = "Madam, I'm Adam";
+        boolean resultado = a.esPalindromoValido(s);
+        System.out.println("¿Es palíndromo '" + s + "'? " + resultado);
+        Assertions.assertTrue(resultado);
+    }
+
+    @Order(9)
+    @Test
+    void testEsPalindromoValido5() {
+        Algoritmos a = new Algoritmos();
+        String s = "hello world";
+        boolean resultado = a.esPalindromoValido(s);
+        System.out.println("¿Es palíndromo '" + s + "'? " + resultado);
+        Assertions.assertFalse(resultado);
+    }
+
+    @Order(10)
+    @Test
+    void testEsPalindromoValido6() {
+        Algoritmos a = new Algoritmos();
+        String s = "12321";
+        boolean resultado = a.esPalindromoValido(s);
+        System.out.println("¿Es palíndromo '" + s + "'? " + resultado);
+        Assertions.assertTrue(resultado);
+    }
+
+    @Order(11)
+    @Test
+    void testEsPalindromoValido7() {
+        Algoritmos a = new Algoritmos();
+        String s = "No 'x' in Nixon";
+        boolean resultado = a.esPalindromoValido(s);
+        System.out.println("¿Es palíndromo '" + s + "'? " + resultado);
+        Assertions.assertTrue(resultado);
+    }
+
+    @Order(12)
+    @Test
+    void testEsPalindromoValido8() {
+        Algoritmos a = new Algoritmos();
+        String s = "Java";
+        boolean resultado = a.esPalindromoValido(s);
+        System.out.println("¿Es palíndromo '" + s + "'? " + resultado);
+        Assertions.assertFalse(resultado);
+    }
 
 
 
