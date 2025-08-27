@@ -2,32 +2,21 @@ package pe.edu.upeu;
 
 public class Algoritmos {
 
-    public int[] sumaDosNumeros(int[] m, int o){
-        int[] p=new int[2];
-        for (int i = 0; i < m.length-1; i++) {
-            for (int j = i+1; j < m.length; j++) {
-                if (m[i]+m[j]==o){
-                    p[0]=i;
-                    p[1]=j;
-                    break;
-                }
-            }
-        }
-        return p;
+    /**
+     * Devuelve la longitud de la última palabra de una cadena.
+     * Una palabra se define como una subcadena que no contiene espacios.
+     *
+     * @param s la cadena de entrada
+     * @return la longitud de la última palabra
+     */
+    public int longitudUltimaPalabra(String s) {
+        // Eliminar espacios al inicio y al final
+        s = s.trim();
+
+        // Dividir en palabras (separadas por uno o más espacios)
+        String[] palabras = s.split(" +");
+
+        // Retornar la longitud de la última palabra
+        return palabras[palabras.length - 1].length();
     }
-
-
-    public static void main(String[] args) {
-        Algoritmos a = new Algoritmos();
-
-        int[] m = {11,15,2,7};
-        int o=9;
-        int[] p=a.sumaDosNumeros(m,o);
-        System.out.println("["+p[0]+","+p[1]+"]");
-
-    }
-
-
-
-
 }
