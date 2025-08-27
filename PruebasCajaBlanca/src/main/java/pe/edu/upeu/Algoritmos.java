@@ -2,32 +2,29 @@ package pe.edu.upeu;
 
 public class Algoritmos {
 
-    public int[] sumaDosNumeros(int[] m, int o){
-        int[] p=new int[2];
-        for (int i = 0; i < m.length-1; i++) {
-            for (int j = i+1; j < m.length; j++) {
-                if (m[i]+m[j]==o){
-                    p[0]=i;
-                    p[1]=j;
-                    break;
-                }
+    // Clase interna que representa un nodo de lista enlazada
+    public static class ListNode {
+        public int val;
+        public ListNode next;
+
+        public ListNode(int x) {
+            val = x;
+            next = null;
+        }
+    }
+
+    // Método para eliminar duplicados de una lista enlazada ordenada
+    public ListNode eliminarDuplicados(ListNode head) {
+        if (head == null) return null;
+
+        ListNode actual = head;
+        while (actual != null && actual.next != null) {
+            if (actual.val == actual.next.val) {
+                actual.next = actual.next.next; // saltar duplicado
+            } else {
+                actual = actual.next;
             }
         }
-        return p;
+        return head;
     }
-
-
-    public static void main(String[] args) {
-        Algoritmos a = new Algoritmos();
-
-        int[] m = {11,15,2,7};
-        int o=9;
-        int[] p=a.sumaDosNumeros(m,o);
-        System.out.println("["+p[0]+","+p[1]+"]");
-
-    }
-
-
-
-
 }
