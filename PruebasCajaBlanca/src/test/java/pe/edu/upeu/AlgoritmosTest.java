@@ -62,7 +62,63 @@ public class AlgoritmosTest {
         Assertions.assertNotEquals(o,suma);
     }
 
+    @Order(5)
+    @Test
+    void testSqrtCaso1() {
+        algoritmo11 a = new algoritmo11();
+        int x = 4;
+        int resultado = a.sqrt(x);
+        System.out.println("Sqrt(" + x + ") = " + resultado);
+        Assertions.assertEquals(2, resultado);
+    }
 
+    @Order(6)
+    @Test
+    void testSqrtCaso2() {
+        algoritmo11 a = new algoritmo11();
+        int x = 8;
+        int resultado = a.sqrt(x);
+        System.out.println("Sqrt(" + x + ") = " + resultado);
+        Assertions.assertEquals(2, resultado); // raíz truncada
+    }
 
+    @Order(7)
+    @Test
+    void testSqrtCaso3() {
+        algoritmo11 a = new algoritmo11();
+        int x = 15;
+        int resultado = a.sqrt(x);
+        System.out.println("Sqrt(" + x + ") = " + resultado);
+        Assertions.assertEquals(3, resultado);
+    }
 
+    @Order(8)
+    @Test
+    void testSqrtCaso4() {
+        algoritmo11 a = new algoritmo11();
+        int x = 1;
+        int resultado = a.sqrt(x);
+        System.out.println("Sqrt(" + x + ") = " + resultado);
+        Assertions.assertEquals(1, resultado);
+    }
+
+    @Order(9)
+    @Test
+    void testSqrtCaso5() {
+        algoritmo11 a = new algoritmo11();
+        int x = 0;
+        int resultado = a.sqrt(x);
+        System.out.println("Sqrt(" + x + ") = " + resultado);
+        Assertions.assertEquals(0, resultado);
+    }
+
+    @Order(10)
+    @Test
+    void testSqrtCaso6() {
+        algoritmo11 a = new algoritmo11();
+        int x = 2147395599; // el cuadrado más grande antes de Integer.MAX_VALUE
+        int resultado = a.sqrt(x);
+        System.out.println("Sqrt(" + x + ") = " + resultado);
+        Assertions.assertEquals(46339, resultado); // valor correcto
+    }
 }
