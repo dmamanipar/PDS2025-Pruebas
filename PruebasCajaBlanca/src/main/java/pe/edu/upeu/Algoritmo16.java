@@ -1,6 +1,7 @@
 package pe.edu.upeu;
 
 public class Algoritmo16 {
+
     // Método para encontrar el número único usando XOR
     public int numeroUnico(int[] nums) {
         int unico = 0;
