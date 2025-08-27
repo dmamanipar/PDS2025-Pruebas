@@ -5,41 +5,30 @@ import java.util.List;
 
 public class TrianguloPascal {
 
-    // Método principal: genera el triángulo de Pascal
+    // Genera el triángulo de Pascal cumpliendo 1 <= numRows <= 30
     public List<List<Integer>> generar(int numRows) {
+        if (numRows < 1 || numRows > 30) {
+            throw new IllegalArgumentException("numRows debe estar entre 1 y 30");
+        }
+
         List<List<Integer>> triangle = new ArrayList<>();
 
-        if (numRows <= 0) return triangle;
+        // Fila 0: [1]
+        List<Integer> first = new ArrayList<>();
+        first.add(1);
+        triangle.add(first);
 
-        // Primera fila [1]
-        triangle.add(new ArrayList<>());
-        triangle.get(0).add(1);
-
-        // Construir el resto
+        // Filas siguientes
         for (int i = 1; i < numRows; i++) {
-            List<Integer> prevRow = triangle.get(i - 1);
+            List<Integer> prev = triangle.get(i - 1);
             List<Integer> row = new ArrayList<>();
-
-            row.add(1); // primer elemento
-
+            row.add(1);
             for (int j = 1; j < i; j++) {
-                row.add(prevRow.get(j - 1) + prevRow.get(j));
+                row.add(prev.get(j - 1) + prev.get(j));
             }
-
-            row.add(1); // último elemento
+            row.add(1);
             triangle.add(row);
         }
-
         return triangle;
-    }
-
-    // Prueba manual
-    public static void main(String[] args) {
-        TrianguloPascal tp = new TrianguloPascal();
-        List<List<Integer>> resultado = tp.generar(5);
-
-        for (List<Integer> fila : resultado) {
-            System.out.println(fila);
-        }
     }
 }
