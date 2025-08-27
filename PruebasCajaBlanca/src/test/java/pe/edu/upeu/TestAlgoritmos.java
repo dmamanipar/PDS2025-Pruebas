@@ -14,9 +14,9 @@ public class TestAlgoritmos {
     private static void probarCaso(Algoritmos a, int[] nums, int esperado, String nombreCaso) {
         int resultado = a.elementoMayoritario(nums);
         if (resultado == esperado) {
-            System.out.println(nombreCaso + " ✅ PASA -> Mayoría: " + resultado);
+            System.out.println(nombreCaso + " PASA -> Mayoría: " + resultado);
         } else {
-            System.out.println(nombreCaso + " ❌ FALLA -> Obtuvo: " + resultado + ", Esperado: " + esperado);
+            System.out.println(nombreCaso + "  FALLA -> Obtuvo: " + resultado + ", Esperado: " + esperado);
         }
     }
 }
