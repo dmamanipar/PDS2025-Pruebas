@@ -1,5 +1,6 @@
 package pe.edu.upeu;
 
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -62,7 +63,73 @@ public class AlgoritmosTest {
         Assertions.assertNotEquals(o,suma);
     }
 
+    @Order(5)
+    @Test
+    void testLongitudUltimaPalabra1(){
+        Algoritmos a = new Algoritmos();
+        String s = "Hello World";
+        int resultado = a.longitudUltimaPalabra(s);
+        System.out.println("\"" + s + "\" -> " + resultado);
+        Assertions.assertEquals(5, resultado);
+    }
 
+    @Order(6)
+    @Test
+    void testLongitudUltimaPalabra2(){
+        Algoritmos a = new Algoritmos();
+        String s = "   fly me   to   the moon  ";
+        int resultado = a.longitudUltimaPalabra(s);
+        System.out.println("\"" + s + "\" -> " + resultado);
+        Assertions.assertEquals(4, resultado);
+    }
 
+    @Order(7)
+    @Test
+    void testLongitudUltimaPalabra3(){
+        Algoritmos a = new Algoritmos();
+        String s = "luffy is still joyboy";
+        int resultado = a.longitudUltimaPalabra(s);
+        System.out.println("\"" + s + "\" -> " + resultado);
+        Assertions.assertEquals(6, resultado);
+    }
 
+    @Order(8)
+    @Test
+    void testLongitudUltimaPalabra4(){
+        Algoritmos a = new Algoritmos();
+        String s = "a";
+        int resultado = a.longitudUltimaPalabra(s);
+        System.out.println("\"" + s + "\" -> " + resultado);
+        Assertions.assertEquals(1, resultado);
+    }
+
+    @Order(9)
+    @Test
+    void testLongitudUltimaPalabra5(){
+        Algoritmos a = new Algoritmos();
+        String s = "   a   ";
+        int resultado = a.longitudUltimaPalabra(s);
+        System.out.println("\"" + s + "\" -> " + resultado);
+        Assertions.assertEquals(1, resultado);
+    }
+
+    @Order(10)
+    @Test
+    void testLongitudUltimaPalabra6(){
+        Algoritmos a = new Algoritmos();
+        String s = "word ";
+        int resultado = a.longitudUltimaPalabra(s);
+        System.out.println("\"" + s + "\" -> " + resultado);
+        Assertions.assertEquals(4, resultado);
+    }
+
+    @Order(11)
+    @Test
+    void testLongitudUltimaPalabra7(){
+        Algoritmos a = new Algoritmos();
+        String s = "multiple    spaces    between    words";
+        int resultado = a.longitudUltimaPalabra(s);
+        System.out.println("\"" + s + "\" -> " + resultado);
+        Assertions.assertEquals(5, resultado);
+    }
 }
