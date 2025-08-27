@@ -15,7 +15,7 @@ public class TriPascalTest {
         TriPascal a = new TriPascal();
         List<List<Integer>> result = a.generarTrianguloPascal(5);
 
-        // ✅ Mostrar resultado en consola
+        // Mostrar resultado en consola
         System.out.println("Triángulo de Pascal con 5 filas: " + result);
 
         Assertions.assertEquals(5, result.size());
@@ -32,7 +32,7 @@ public class TriPascalTest {
         TriPascal a = new TriPascal();
         List<List<Integer>> result = a.generarTrianguloPascal(1);
 
-        // ✅ Mostrar resultado en consola
+        // Mostrar resultado en consola
         System.out.println("Triángulo de Pascal con 1 fila: " + result);
 
         Assertions.assertEquals(1, result.size());
