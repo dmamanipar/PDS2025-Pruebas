@@ -1,7 +1,10 @@
 package pe.edu.upeu;
 
+import java.util.HashSet;
+
 public class Algoritmos {
 
+    // Método que ya tenías (Two Sum)
     public int[] sumaDosNumeros(int[] m, int o){
         int[] p=new int[2];
         for (int i = 0; i < m.length-1; i++) {
@@ -16,18 +19,26 @@ public class Algoritmos {
         return p;
     }
 
+    // 👉 Nuevo método para número feliz
+    public boolean esNumeroFeliz(int n) {
+        HashSet<Integer> vistos = new HashSet<>();
 
-    public static void main(String[] args) {
-        Algoritmos a = new Algoritmos();
+        while (n != 1 && !vistos.contains(n)) {
+            vistos.add(n);
+            n = sumaDeCuadrados(n);
+        }
 
-        int[] m = {11,15,2,7};
-        int o=9;
-        int[] p=a.sumaDosNumeros(m,o);
-        System.out.println("["+p[0]+","+p[1]+"]");
-
+        return n == 1;
     }
 
-
-
-
+    // Método auxiliar
+    private int sumaDeCuadrados(int n) {
+        int suma = 0;
+        while (n > 0) {
+            int digito = n % 10;
+            suma += digito * digito;
+            n /= 10;
+        }
+        return suma;
+    }
 }
