@@ -6,63 +6,77 @@ import org.junit.jupiter.api.Test;
 
 public class AlgoritmosTest {
 
+    private Algoritmos.ListNode crearLista(int[] valores) {
+        if (valores.length == 0) return null;
+        Algoritmos.ListNode head = new Algoritmos.ListNode(valores[0]);
+        Algoritmos.ListNode actual = head;
+        for (int i = 1; i < valores.length; i++) {
+            actual.next = new Algoritmos.ListNode(valores[i]);
+            actual = actual.next;
+        }
+        return head;
+    }
+
+    private int[] listaToArray(Algoritmos.ListNode head) {
+        java.util.List<Integer> lista = new java.util.ArrayList<>();
+        while (head != null) {
+            lista.add(head.val);
+            head = head.next;
+        }
+        return lista.stream().mapToInt(i -> i).toArray();
+    }
+
     @Order(1)
     @Test
-    void testSumaDosNumeros(){
+    void testEliminarDuplicados1() {
         Algoritmos a = new Algoritmos();
-        int[] m = {11,15,2,7};
-        int o=9;
-        int[] p=a.sumaDosNumeros(m,o);
-        Assertions.assertNotNull(p);
-        int suma=(m[p[0]]+m[p[1]]);
-        System.out.println("["+p[0]+","+p[1]+"]");
-        System.out.println(suma);
-        Assertions.assertEquals(o,suma);
+        Algoritmos.ListNode head = crearLista(new int[]{1,1,2});
+        Algoritmos.ListNode res = a.eliminarDuplicados(head);
+        int[] esperado = {1,2};
+        System.out.println("Caso 1 → " + java.util.Arrays.toString(listaToArray(res)));
+        Assertions.assertArrayEquals(esperado, listaToArray(res));
     }
 
     @Order(2)
     @Test
-    void testSumaDosNumeros2(){
+    void testEliminarDuplicados2() {
         Algoritmos a = new Algoritmos();
-        int[] m = {3,2,4};
-        int o=6;
-        int[] p=a.sumaDosNumeros(m,o);
-        Assertions.assertNotNull(p);
-        int suma=(m[p[0]]+m[p[1]]);
-        System.out.println("["+p[0]+","+p[1]+"]");
-        System.out.println(suma);
-        Assertions.assertEquals(o,suma);
+        Algoritmos.ListNode head = crearLista(new int[]{1,1,2,3,3});
+        Algoritmos.ListNode res = a.eliminarDuplicados(head);
+        int[] esperado = {1,2,3};
+        System.out.println("Caso 2 → " + java.util.Arrays.toString(listaToArray(res)));
+        Assertions.assertArrayEquals(esperado, listaToArray(res));
     }
 
     @Order(3)
     @Test
-    void testSumaDosNumeros3(){
+    void testListaSinDuplicados() {
         Algoritmos a = new Algoritmos();
-        int[] m = {3,3};
-        int o=6;
-        int[] p=a.sumaDosNumeros(m,o);
-        Assertions.assertNotNull(p);
-        int suma=(m[p[0]]+m[p[1]]);
-        System.out.println("["+p[0]+","+p[1]+"]");
-        System.out.println(suma);
-        Assertions.assertEquals(o,suma);
+        Algoritmos.ListNode head = crearLista(new int[]{1,2,3,4});
+        Algoritmos.ListNode res = a.eliminarDuplicados(head);
+        int[] esperado = {1,2,3,4};
+        System.out.println("Caso 3 → " + java.util.Arrays.toString(listaToArray(res)));
+        Assertions.assertArrayEquals(esperado, listaToArray(res));
     }
 
     @Order(4)
     @Test
-    void testSumaDosNumeros4(){
+    void testListaConUnSoloElemento() {
         Algoritmos a = new Algoritmos();
-        int[] m = {11,15,2,7};
-        int o=8;
-        int[] p=a.sumaDosNumeros(m,o);
-        Assertions.assertNotNull(p);
-        int suma=(m[p[0]]+m[p[1]]);
-        System.out.println("["+p[0]+","+p[1]+"]");
-        System.out.println(suma);
-        Assertions.assertNotEquals(o,suma);
+        Algoritmos.ListNode head = crearLista(new int[]{5});
+        Algoritmos.ListNode res = a.eliminarDuplicados(head);
+        int[] esperado = {5};
+        System.out.println("Caso 4 → " + java.util.Arrays.toString(listaToArray(res)));
+        Assertions.assertArrayEquals(esperado, listaToArray(res));
     }
 
-
-
-
+    @Order(5)
+    @Test
+    void testListaVacia() {
+        Algoritmos a = new Algoritmos();
+        Algoritmos.ListNode head = null;
+        Algoritmos.ListNode res = a.eliminarDuplicados(head);
+        System.out.println("Caso 5 → Lista vacía → " + res);
+        Assertions.assertNull(res);
+    }
 }
