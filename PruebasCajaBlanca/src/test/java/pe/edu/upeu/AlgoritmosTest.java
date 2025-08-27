@@ -10,7 +10,7 @@ public class AlgoritmosTest {
     @Test
     void testSumaDosNumeros(){
         Algoritmos a = new Algoritmos();
-        int[] m = {11,15,2,7};
+        int[] m = {3,6,78,7};
         int o=9;
         int[] p=a.sumaDosNumeros(m,o);
         Assertions.assertNotNull(p);
